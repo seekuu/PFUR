@@ -1,4 +1,5 @@
 def qs(a,l,r):
+	print(a)
 	if r>l:
 		el=a[r]
 		i=l-1
@@ -13,9 +14,12 @@ def qs(a,l,r):
 			if i>=j:
 				break
 			a[i],a[j]=a[j],a[i]
+			print(a)
 		a[i],a[r]=a[r],a[i]
 		qs(a,l,i-1)
 		qs(a,i+1,r)
-a=[1,12,5,1,5,241,5,3,4,1,2,3,5,7,89,100]			
+a = input().split()
+for k in range(len(a)):
+    a[k] = int(a[k])
 qs(a,0,len(a)-1)
 print(a)
