@@ -11,10 +11,12 @@ def qs(a,l,r):
 			i+=1
 		while a[j]>el:
 			j-=1
-		if i<=j and a[i]!=a[j]:
-			a[i],a[j]=a[j],a[i]
-			cnt+=1
-			print(a)
+		if i<=j:
+			if a[i]!=a[j] and i!=j:
+				#избегаем бесполезных замен
+				a[i],a[j]=a[j],a[i]
+				cnt+=1
+				print(a)
 			i=i+1
 			j=j-1
 		#проходим по списку , находим эл-ты , стоящие "не на своих местах", меняем их местами
@@ -26,5 +28,5 @@ for k in range(len(a)):
 	a[k]=int(a[k])	
 	#переводим эл-ты списка в тип int
 qs(a,0,len(a)-1)
-print(a)
-print(cnt)
+print("Отсортированный массив:"a)
+print("Количество шагов:",cnt)
