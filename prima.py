@@ -5,8 +5,8 @@ from networkx import nx
 import random as rd
 
 n=int(input())#количество вершин
-'''
-arr = [[0] * n for i in range(n)]
+
+'''arr = [[0] * n for i in range(n)]
 for i in range(n):
     for j in range(i+1,n):
         print("Введите",i,j)
@@ -17,7 +17,7 @@ for i in range(n):
 arr = [[0] * n for i in range(n)]
 for i in range(n):
     for j in range(i+1,n):
-        arr[i][j]=rd.randint(-1,100)
+        arr[i][j]=rd.randint(-30,30)
         arr[j][i]=arr[i][j]
 #генератор графа
 
@@ -43,11 +43,11 @@ def visual(l,e,boolean):#визуализация графа , boolean==0 для
         pos=nx.spring_layout(G)
     else:
         pos=nx.shell_layout(G)
-    nx.draw_networkx_nodes(G,pos,node_size=200)
+    nx.draw_networkx_nodes(G,pos,node_size=400)
 
-    nx.draw_networkx_edges(G,pos,edgelist=e,width=1)
+    nx.draw_networkx_edges(G,pos,edgelist=e,width=3)
 
-    nx.draw_networkx_labels(G,pos,font_size=10,font_family='sans-serif')
+    nx.draw_networkx_labels(G,pos,font_size=15,font_family='sans-serif')
 
     labels = nx.get_edge_attributes(G,'weight')
 
@@ -75,10 +75,7 @@ def minel(i):#алгоритм Прима
                         a=c
                         b=l[t]
         w.append(m)
-        try:
-            l.append(mi)
-        except:
-            l.append(arr[i].index(m))
+        l.append(mi)
         e.append((b,a,{'weight':w[-1]}))
         visual(l,e,1)
 for i in l1:
