@@ -16,7 +16,7 @@ def bin(x,a):#бинарный поиск
         if r-l==1:break
     return mid
 
-for i in range(n):#бинарный поиск на матрицу(nlogn)
+for i in range(n):#бинарный поиск на матрицу(mlogn)
     fff=bin(x,arr[i])
     if x==arr[i][fff]:
         index='Index:'+'['+str(i)+']'+'['+str(fff)+']'
