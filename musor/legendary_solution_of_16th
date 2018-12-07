@@ -1,0 +1,2 @@
+a=[int(i) for i in input().split()]
+b=[int((lambda f:lambda v:f(f,v))(lambda s,x:1 if x==-1 else a[x]*s(s,x-1))(len(a)-1)/a[k]) for k in range(len(a))]
