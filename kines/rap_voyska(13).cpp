@@ -22,29 +22,31 @@ int Print();
 };//конец объявления класс Q
 
 int main(int argc, char *argv[])
-{
-std::stringstream convert(argv[1]);
-
-int myint;
-if (!(convert >> myint))
-
-int A[100][100];
-
-Q obj;	//Объявление объекта
-int cnt=0;
-for (int i = 0; i<argc; i++)
-   {
-           for (int j = 0; j<argc; j++)
-           {
-        	   A[i][j]=*argv[cnt];
-        	   cnt++;
-           }
-   }
-obj.Enter(); //Ввод данных
-obj.Output(); //Вывод данных
-obj.Funk();
-obj.Print();
-return 0;
+{	
+	setlocale(LC_ALL, "Russian");
+	int n = (argc-2)/4 ; //ðàçìåðíîñòü
+	int A[100];
+	int k = 2;
+	int B[100];
+	for (int i = 0;i<n*n;i++)
+			{
+				A[i] = atoi(argv[k]);
+				k++;
+			}
+	for (int i = 0;i<n*n;i++)
+			{
+				B[i] = atoi(argv[k]);
+				k++;
+			}			
+	Q obj(A,B,n);							
+	obj.output();
+	obj.funk();
+	//cout<<endl<<"Ìàññèâ X: "<<endl;
+	{
+		for(int i = 0;i<n;i++)
+				cout<<X[i]<<" ";
+	}
+	return 0;
 }
 void Q::Enter()//отложенное опр-ние функции ввода данных
 {
@@ -63,7 +65,7 @@ cout<<"\n\n Vivod massiva slov:";
 for(int i=0; i<n; i++){
 	cout<<endl;
 	for(int j=0;j<m;j++){
-		cout<<mas[i][j]<<" ";
+		cout<<A[i][j]<<" ";
 		}
 	}
 for(int i=0; i<n; i++){
@@ -78,7 +80,7 @@ int Q::Funk(){
 	for(int i=0;i<n;i++){
 		bool boolean=true;
 		for(int j=0;j<n;j++){
-			if(mas[i][j]<=B[i][j])boolean=false;
+			if(A[i][j]<=B[i][j])boolean=false;
 		}
 		if(boolean==true)X[i]=1;
 		else X[i]=0;
