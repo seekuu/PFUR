@@ -5,3 +5,6 @@ def red(k,arr,s):
     return int(k)
 b=[red(1,a,i) for i in range(len(a))]
 print(b)
+'''16-5 example input:
+                1 2 3'''
+                
