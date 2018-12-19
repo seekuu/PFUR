@@ -10,3 +10,8 @@ for k,i in enumerate(mas):
         print(k,i.index(val))
     except:
         continue
+'''example: 2
+            3 
+            4
+            1 2 3
+            4 5 6'''
