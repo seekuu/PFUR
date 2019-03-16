@@ -65,7 +65,7 @@ G=nx.Graph()
 
 l1=[i for i in range(1,len(arr))]#создаем список вершин , которые должны быть включены в покрывающее дерево(все)
 l,w,e=[0],[],[]
-def minel(i):#алгоритм Прима с отвратительной сложностью O(n^3)
+def minel(i):#не лучшая реализация 
         m=min(arr[i])
         for t,d in enumerate(l):
             for c,k in enumerate(arr[d]):
